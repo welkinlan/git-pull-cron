@@ -25,3 +25,18 @@ new CronJob('* * * * * *', function() {
     console.log(`stderr: ${stderr}`);
 });
 }, null, true, 'America/Los_Angeles');
+
+// reload cems-mid server at 5 am daily
+new CronJob('00 00 05 * * *', function() {
+  exec('pm2 reload cems-mid', (err, stdout, stderr) => {
+    if (err) {
+      console.error(err)
+      // node couldn't execute the command
+      return;
+    }
+
+    // the *entire* stdout and stderr (buffered)
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+  }); 
+}, null, true, 'Asia/Beijing');
