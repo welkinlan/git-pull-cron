@@ -1,7 +1,8 @@
 var CronJob = require('cron').CronJob;
 var exec = require('child_process').exec;
 
-new CronJob('* * * * * *', function() {
+// git pull every 30 seconds
+new CronJob('30 * * * * *', function() {
   exec('cd /var/www/lanyucorp.com/public_html/LanyuCorpWebsite; git checkout master; git fetch origin; git merge origin/master;', (err, stdout, stderr) => {
     if (err) {
       console.error(err)
