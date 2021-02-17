@@ -39,4 +39,4 @@ new CronJob('00 00 05 * * *', function() {
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
   }); 
-}, null, true, 'Asia/Beijing');
+}, null, true, 'Asia/Shanghai');
